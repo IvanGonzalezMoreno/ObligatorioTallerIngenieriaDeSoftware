@@ -1,0 +1,1250 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --azul-oscuro: #1c4a68;
+    --azul-hover: #163a52;
+    --verde-agua: #2f8f80;
+    --fondo: #f3f5f9;
+    --borde: #dfe3ea;
+    --texto-gris: #6b7280;
+    --blanco: #ffffff;
+    --arena: #f6efe2;
+    --arena-oscura: #e9dcc3;
+    --dorado: #c9a15a;
+    --azul-profundo: #123147;
+}
+
+body {
+    font-family: "Poppins", -apple-system, "Segoe UI", sans-serif;
+}
+
+main h1,
+main h2,
+main h3 {
+    font-family: "Playfair Display", Georgia, serif;
+}
+
+/* ============================================
+   Header (todas las páginas)
+   ============================================ */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 40px;
+    background-color: var(--blanco);
+    border-bottom: 1px solid var(--borde);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 120px;
+    width: auto;
+    display: block;
+}
+
+header nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: var(--azul-oscuro);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.15s ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: var(--verde-agua);
+}
+
+/* ============================================
+   Footer (todas las páginas)
+   ============================================ */
+
+footer {
+    background-color: var(--blanco);
+    border-top: 1px solid var(--borde);
+    padding: 30px 20px;
+}
+
+.divRedesSociales {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.divRedesSociales a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.15s ease;
+}
+
+.divRedesSociales a:hover {
+    opacity: 0.7;
+}
+
+.divRedesSociales img {
+    width: 22px;
+    height: 22px;
+}
+
+/* ============================================
+   Página Inicio — body.pagina-inicio
+   ============================================ */
+
+.pagina-inicio main {
+    max-width: none;
+    padding: 0;
+}
+
+/* Hero */
+
+#inicio {
+    background: linear-gradient(180deg, var(--arena) 0%, var(--blanco) 100%);
+    padding: 80px 20px 90px;
+}
+
+.contenido-principal {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contenido-principal h1 {
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+}
+
+.clasificacion-hotel {
+    color: var(--dorado);
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+.contenido-principal > p {
+    font-family: "Playfair Display", Georgia, serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--texto-gris);
+    margin-bottom: 40px;
+}
+
+.contenido-principal img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(18, 49, 71, 0.18);
+}
+
+/* Servicios */
+
+#servicios {
+    background-color: var(--blanco);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+#servicios h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    margin-bottom: 48px;
+    position: relative;
+}
+
+#servicios h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--dorado);
+    margin: 16px auto 0;
+}
+
+.contenedor-servicios {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.servicio {
+    width: auto;
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    padding: 24px 14px;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.servicio:hover {
+    border-color: var(--verde-agua);
+    box-shadow: 0 6px 18px rgba(18, 49, 71, 0.06);
+}
+
+.servicio[open] {
+    border-color: var(--verde-agua);
+    box-shadow: 0 6px 18px rgba(18, 49, 71, 0.08);
+}
+
+.servicio summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.servicio summary::-webkit-details-marker {
+    display: none;
+}
+
+.icono-servicio {
+    width: 72px;
+    height: 72px;
+    padding: 20px;
+    border-radius: 50%;
+    background-color: var(--arena);
+    box-sizing: border-box;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.servicio:hover .icono-servicio {
+    background-color: var(--verde-agua);
+    transform: translateY(-4px);
+}
+
+.servicio summary p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--azul-profundo);
+    margin: 0;
+    text-align: center;
+    min-height: 2.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.servicio summary::after {
+    content: "+";
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--arena);
+    color: var(--azul-profundo);
+    font-size: 1rem;
+    line-height: 1;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.servicio[open] summary::after {
+    transform: rotate(45deg);
+    background-color: var(--verde-agua);
+    color: var(--blanco);
+}
+
+.descripcion-servicio {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--borde);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--texto-gris);
+    text-align: center;
+}
+
+/* Reseñas */
+
+#reseñas {
+    background-color: var(--arena);
+    padding: 80px 20px 90px;
+    text-align: center;
+}
+
+#reseñas h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    margin-bottom: 48px;
+    position: relative;
+}
+
+#reseñas h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--dorado);
+    margin: 16px auto 0;
+}
+
+.contenedor-reseñas {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.articulo-reseña {
+    background-color: var(--blanco);
+    border-radius: 14px;
+    padding: 32px 28px;
+    text-align: left;
+    box-shadow: 0 10px 26px rgba(18, 49, 71, 0.08);
+    position: relative;
+}
+
+.articulo-reseña::before {
+    content: "\201C";
+    position: absolute;
+    top: 10px;
+    right: 24px;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 3.5rem;
+    color: var(--arena-oscura);
+    line-height: 1;
+}
+
+.encabezado-reseña {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.imgPerfil {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--arena);
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+.informacion-huesped {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.nombre-huesped {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    margin: 0;
+}
+
+.imgEstrellas {
+    height: 14px;
+    width: auto;
+}
+
+.texto-reseña {
+    font-family: "Playfair Display", Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--texto-gris);
+    margin: 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 860px) {
+    .contenedor-reseñas {
+        grid-template-columns: 1fr;
+    }
+
+    .contenido-principal h1 {
+        font-size: 2.4rem;
+    }
+}
+
+@media (max-width: 640px) {
+    #inicio,
+    #servicios,
+    #reseñas {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .contenedor-servicios {
+        grid-template-columns: none;
+        grid-auto-flow: column;
+        grid-auto-columns: 150px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
+        padding-bottom: 8px;
+        gap: 14px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .servicio {
+        scroll-snap-align: start;
+    }
+}
+
+/* ============================================
+   Páginas con formulario (Reservas, Iniciar sesión)
+   — body.pagina-formulario
+   ============================================ */
+
+.pagina-formulario main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 50px 20px 70px;
+}
+
+.pagina-formulario h1 {
+    font-size: 2.1rem;
+    margin-bottom: 8px;
+}
+
+.descripcion-formulario {
+    color: var(--texto-gris);
+    line-height: 1.5;
+    margin-bottom: 32px;
+    max-width: 560px;
+}
+
+/* Form card */
+
+.tarjeta-formulario {
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 36px;
+    box-shadow: 0 4px 14px rgba(28, 74, 104, 0.06);
+}
+
+/* Filas y columnas */
+
+.fila {
+    margin-bottom: 22px;
+}
+
+.fila.dos-columnas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.fila.tres-columnas {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    gap: 24px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels e inputs */
+
+label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--azul-oscuro);
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="password"],
+select,
+textarea {
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: var(--azul-oscuro);
+    background-color: var(--blanco);
+    width: 100%;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9aa3b0;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--verde-agua);
+    box-shadow: 0 0 0 3px rgba(47, 143, 128, 0.15);
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Servicios especiales (fieldset del formulario) */
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+legend {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--azul-oscuro);
+    padding: 0;
+    margin-bottom: 8px;
+}
+
+.contenedor-servicios-especiales {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    padding-top: 2px;
+}
+
+.opcion-servicio {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.opcion-servicio label {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--azul-oscuro);
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+.opcion-servicio input[type="checkbox"] {
+    accent-color: var(--verde-agua);
+    width: 15px;
+    height: 15px;
+}
+
+/* Botón */
+
+button[type="submit"] {
+    width: 100%;
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    border: none;
+    border-radius: 6px;
+    padding: 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--azul-hover);
+}
+
+button:active {
+    transform: scale(.98);
+}
+
+.mensaje-final p {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--texto-gris);
+    margin: 16px 0 0;
+}
+/* ============================================
+   Página Habitaciones — body.pagina-habitaciones
+   ============================================ */
+
+.pagina-habitaciones main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 20px 90px;
+}
+
+#habitaciones > h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    margin-bottom: 8px;
+    position: relative;
+    grid-column: 1 / -1;
+}
+
+#habitaciones > h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--dorado);
+    margin: 16px auto 0;
+}
+
+#habitaciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    align-items: start;
+    gap: 28px;
+    row-gap: 48px;
+}
+
+.tarjeta-habitacion {
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.tarjeta-habitacion:hover {
+    box-shadow: 0 14px 30px rgba(18, 49, 71, 0.1);
+    transform: translateY(-4px);
+}
+
+.tarjeta-habitacion img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.tarjeta-habitacion h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    margin: 18px 20px 4px;
+}
+
+.tarjeta-habitacion details {
+    margin: 0 20px 16px;
+    padding-top: 8px;
+    border-top: 1px solid var(--borde);
+}
+
+.tarjeta-habitacion summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--verde-agua);
+}
+
+.tarjeta-habitacion summary::-webkit-details-marker {
+    display: none;
+}
+
+.tarjeta-habitacion summary::after {
+    content: "+";
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--arena);
+    color: var(--azul-profundo);
+    font-size: 0.85rem;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+.tarjeta-habitacion details[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.tarjeta-habitacion details p {
+    font-size: 0.85rem;
+    color: var(--texto-gris);
+    line-height: 1.6;
+    margin: 0 0 4px;
+}
+
+.tarjeta-habitacion > button {
+    margin: 0 20px;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.tarjeta-habitacion > button:first-of-type {
+    margin-top: auto;
+    background-color: var(--blanco);
+    border: 1px solid var(--azul-oscuro);
+    color: var(--azul-oscuro);
+}
+
+.tarjeta-habitacion > button:first-of-type:hover {
+    background-color: var(--arena);
+}
+
+.tarjeta-habitacion > button:last-of-type {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: var(--azul-oscuro);
+    border: none;
+    color: var(--blanco);
+}
+
+.tarjeta-habitacion > button:last-of-type:hover {
+    background-color: var(--azul-hover);
+}
+
+
+.pagina-faq main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 70px 20px 90px;
+}
+
+.pagina-faq h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.pagina-faq h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--dorado);
+    margin: 16px auto 40px;
+}
+
+.pagina-faq details {
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 18px 24px;
+    margin-bottom: 14px;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.pagina-faq details:hover {
+    border-color: var(--verde-agua);
+    box-shadow: 0 6px 18px rgba(18, 49, 71, 0.06);
+}
+
+.pagina-faq details[open] {
+    border-color: var(--verde-agua);
+    box-shadow: 0 6px 18px rgba(18, 49, 71, 0.08);
+}
+
+.pagina-faq summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+}
+
+.pagina-faq summary::-webkit-details-marker {
+    display: none;
+}
+
+.pagina-faq summary::after {
+    content: "+";
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--arena);
+    color: var(--azul-profundo);
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.pagina-faq details[open] summary::after {
+    content: "+";
+    transform: rotate(45deg);
+    background-color: var(--verde-agua);
+    color: var(--blanco);
+}
+
+.pagina-faq details p {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--borde);
+    color: var(--texto-gris);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+    .pagina-faq main {
+        padding: 50px 16px 70px;
+    }
+
+    .pagina-faq summary {
+        font-size: 0.95rem;
+    }
+}
+
+/* ============================================
+   Página Galería — body.pagina-galeria
+   ============================================ */
+
+.pagina-galeria main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 20px 90px;
+}
+
+#galeria > h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    margin-bottom: 8px;
+    position: relative;
+}
+
+#galeria > h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--dorado);
+    margin: 16px auto 48px;
+}
+
+.tarjeta-galeria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+h2 {
+    flex-basis: 100%;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    margin-bottom: 4px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.imagenes-galeria {
+    flex: 1 1 400px;
+}
+
+.imagenes-galeria img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 10px 26px rgba(18, 49, 71, 0.08);
+}
+
+@media (max-width: 640px) {
+    .imagenes-galeria {
+        flex-basis: 100%;
+    }
+}
+
+/* Carrusel */
+
+.carrusel {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px 20px;
+    margin-bottom: 56px;
+}
+
+.carrusel h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    padding-top: 50px;
+}
+
+#imagenCarrusel {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    background-color: var(--arena);
+}
+
+.carrusel button {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--arena);
+    color: var(--azul-profundo);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.carrusel button:hover {
+    background-color: var(--verde-agua);
+    color: var(--blanco);
+}
+
+@media (max-width: 640px) {
+    #imagenCarrusel {
+        height: 260px;
+    }
+}
+
+.contacto-email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--borde);
+    color: var(--texto-gris);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.contacto-email:hover {
+    color: var(--verde-agua);
+}
+
+.contacto-email img {
+    width: 18px;
+    height: 18px;
+}
+
+/* Ubicación */
+
+#ubicacion {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+#ubicacion h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    margin-bottom: 8px;
+    position: relative;
+}
+
+#ubicacion h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--dorado);
+    margin: 16px auto 32px;
+}
+
+#ubicacion iframe {
+    width: 100%;
+    height: 420px;
+    border: 0;
+    border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(18, 49, 71, 0.18);
+}
+
+@media (max-width: 640px) {
+    #ubicacion iframe {
+        height: 280px;
+    }
+}
+
+
+/* ============================================
+   Página Gestión de Reservas
+   ============================================ */
+
+.pagina-gestion-reservas main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 70px 20px 90px;
+}
+
+.pagina-gestion-reservas h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.pagina-gestion-reservas h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--dorado);
+    margin: 16px auto 40px;
+}
+
+#reservas-pendientes {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#reservas-pendientes > div {
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    padding: 22px 26px;
+}
+
+#reservas-pendientes > div p {
+    font-size: 0.9rem;
+    color: var(--texto-gris);
+    margin-bottom: 4px;
+}
+
+#reservas-pendientes .btn {
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.15s ease;
+}
+
+#reservas-pendientes .btn-success {
+    background-color: var(--verde-agua);
+    color: var(--blanco);
+}
+
+#reservas-pendientes .btn-success:hover {
+    background-color: #257568;
+}
+
+#reservas-pendientes .btn-danger {
+    background-color: var(--blanco);
+    border: 1px solid #c65a4a;
+    color: #c65a4a;
+}
+
+#reservas-pendientes .btn-danger:hover {
+    background-color: #c65a4a;
+    color: var(--blanco);
+}
+
+/* ============================================
+   Página Consultar Disponibilidad
+   ============================================ */
+
+#consultar-disponibilidad-habitaciones {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 70px 20px 90px;
+}
+
+#consultar-disponibilidad-habitaciones h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    margin-bottom: 8px;
+    position: relative;
+}
+
+#consultar-disponibilidad-habitaciones h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--dorado);
+    margin: 16px auto 40px;
+}
+
+#lista-disponibilidad {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+#lista-disponibilidad > div {
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    padding: 36px 32px;
+    text-align: center;
+}
+
+#lista-disponibilidad p {
+    font-size: 1.05rem;
+    color: var(--texto-gris);
+    margin-bottom: 4px;
+}
+
+#lista-disponibilidad p:first-child {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    margin-bottom: 8px;
+}
+
+/* Check-in / Check-out */
+
+main:has(input[id$="CheckIn"], input[id$="CheckOut"]) {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 90px 20px;
+}
+
+main:has(input[id$="CheckIn"], input[id$="CheckOut"]) section {
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    padding: 36px;
+    box-shadow: 0 4px 14px rgba(28, 74, 104, 0.06);
+    text-align: center;
+}
+
+main:has(input[id$="CheckIn"], input[id$="CheckOut"]) h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    margin-bottom: 20px;
+}
+
+main:has(input[id$="CheckIn"], input[id$="CheckOut"]) label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--azul-oscuro);
+    margin-bottom: 8px;
+}
+
+main:has(input[id$="CheckIn"], input[id$="CheckOut"]) input[type="email"] {
+    width: 100%;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: var(--azul-oscuro);
+    margin-bottom: 16px;
+}
+
+main:has(input[id$="CheckIn"], input[id$="CheckOut"]) input[type="email"]:focus {
+    outline: none;
+    border-color: var(--verde-agua);
+    box-shadow: 0 0 0 3px rgba(47, 143, 128, 0.15);
+}
+
+main:has(input[id$="CheckIn"], input[id$="CheckOut"]) button {
+    width: 100%;
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+main:has(input[id$="CheckIn"], input[id$="CheckOut"]) button:hover {
+    background-color: var(--azul-hover);
+}
+
+main:has(input[id$="CheckIn"], input[id$="CheckOut"]) div[id^="resultado"] {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 0.9rem;
+    color: var(--texto-gris);
+}
+
+main:has(input[id$="CheckIn"], input[id$="CheckOut"]) div[id^="resultado"]:not(:empty) {
+    padding-top: 16px;
+    border-top: 1px solid var(--borde);
+}
+
+main:has(input[id$="CheckIn"], input[id$="CheckOut"]) div[id^="resultado"] button {
+    margin-top: 12px;
+}

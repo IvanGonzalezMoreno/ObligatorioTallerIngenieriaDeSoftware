@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hotel Las Gaviotas</title>
+
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body class="pagina-habitaciones">
+
+    <header>
+
+        <a href="index.html" class="logo">
+            <img src="images/LogoHotelLasGaviotas.png" alt="Logo Hotel Las Gaviotas">
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li class="usuario"><a href="reservas.html">Reservar</a></li>
+                <li class="admin" style="display: none"><a href="gestionReservas.html">Gestión de Reservas</a></li>
+                <li class="admin" style="display: none"><a href="editarHabitaciones.html">Editar Habitaciones</a></li>
+                <li class="admin" style="display: none"><a href="consultarDisponibilidad.html">Consultar
+                        disponibilidad</a></li>
+                <li class="admin" style="display: none"><a href="estadisticas.html">Estadísticas</a></li>
+                <li class="admin" style="display: none"><a href="check-in.html">Check-in</a></li>
+                <li class="admin" style="display: none"><a href="check-out.html">Check-out</a></li>
+                <li class="usuario"><a href="habitaciones.html">Habitaciones</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="preguntasFrecuentes.html">Preguntas Frecuentes</a></li>
+                <li class="usuario"><a href="iniciarSesion.html">Iniciar sesión</a></li>
+                <li class="admin" style="display: none" id="cerrarSesion"><a>Cerrar sesión</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section id="habitaciones">
+
+            <h1>Habitaciones</h1>
+
+            <div class="tarjeta-habitacion">
+                <img src="images/habitacionEstandarPortada.png" alt="Estandar">
+
+                <h2>Habitación Estándar</h2>
+
+                <details>
+                    <summary>Detalles</summary>
+
+                    <p>Precio: USD 90 por noche</p>
+                    <p>Capacidad: 2 personas</p>
+                    <p>Está equipada con una cama matrimonial</p>
+                </details>
+
+                <button onclick="window.location.href='galeria.html'">Ver imágenes</button>
+
+                <button onclick="window.location.href='reservas.html'">Reservar</button>
+            </div>
+
+            <div class="tarjeta-habitacion">
+                <img src="images/habitacionDoblePortada.png" alt="Doble">
+
+                <h2>Habitación Doble</h2>
+
+                <details>
+                    <summary>Detalles</summary>
+
+                    <p>Precio: USD 140 por noche</p>
+                    <p>Capacidad: 4 personas</p>
+                    <p>Está equipada con una cama matrimonial y 2 individuales</p>
+                </details>
+
+                <button onclick="window.location.href='galeria.html'">Ver imágenes</button>
+
+                <button onclick="window.location.href='reservas.html'">Reservar</button>
+            </div>
+
+            <div class="tarjeta-habitacion">
+                <img src="images/habitacionSuitePortada.png" alt="Suite">
+
+                <h2>Habitación Suite</h2>
+
+                <details>
+                    <summary>Detalles</summary>
+
+                    <p>Precio: 190 dolares</p>
+                    <p>Capacidad: 2 personas</p>
+                    <p>Está equipada con una cama matrimonial, jacuzzi y balcón con vista al mar.</p>
+                </details>
+
+                <button onclick="window.location.href='galeria.html'">Ver imágenes</button>
+
+                <button onclick="window.location.href='reservas.html'">Reservar</button>
+            </div>
+
+            <div class="tarjeta-habitacion">
+                <img src="images/habitacionFamiliarPortada.png" alt="Familiar">
+
+                <h2>Habitación Familiar</h2>
+
+                <details>
+                    <summary>Detalles</summary>
+
+                    <p>Precio: 240 dolares</p>
+                    <p>Capacidad: 6 personas</p>
+                    <p>Posee con 2 ambientes. Está equipada con una cama matrimonial y 4 camas individuales</p>
+                </details>
+
+                <button onclick="window.location.href='galeria.html'">Ver imágenes</button>
+
+                <button onclick="window.location.href='reservas.html'">Reservar</button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="divRedesSociales">
+
+            <a href="https://x.com/?lang=es" target="_blank">
+                <img src="images/LogoX.svg" alt="Logo de la red social X" class="logoX">
+            </a>
+
+            <a href="https://www.facebook.com/" target="_blank">
+                <img src="images/LogoFacebook.svg" alt="Logo de Facebook" class="logoFacebook">
+            </a>
+
+            <a href="https://www.instagram.com/" target="_blank">
+                <img src="images/LogoInstagram.svg" alt="Logo de Instagram" class="logoInstagram">
+            </a>
+
+            <a href="https://www.whatsapp.com/?lang=es" target="_blank">
+                <img src="images/LogoWhatsapp.svg" alt="Logo de Whatsapp" class="logoWhatsapp">
+            </a>
+
+        </div>
+
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=HotelLasGaviotas@gmail.com" target="_blank"
+            class="contacto-email">
+            <img src="images/IconoEmail.svg" alt="Icono de correo"> HotelLasGaviotas@gmail.com
+        </a>
+        
+    </footer>
+
+</body>
+
+<script src="/script/app.js"></script>
+<script src="/script/core/logout.js"></script>
+
+</html>

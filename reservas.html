@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas | Hotel Las Gaviotas</title>
+
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body class="pagina-formulario">
+
+    <header>
+
+        <a href="index.html" class="logo">
+            <img src="images/LogoHotelLasGaviotas.png" alt="Logo Hotel Las Gaviotas">
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li class="usuario"><a href="reservas.html">Reservar</a></li>
+                <li class="admin" style="display: none"><a href="gestionReservas.html">Gestión de Reservas</a></li>
+                <li class="admin" style="display: none"><a href="editarHabitaciones.html">Editar Habitaciones</a></li>
+                <li class="admin" style="display: none"><a href="consultarDisponibilidad.html">Consultar
+                        disponibilidad</a></li>
+                <li class="admin" style="display: none"><a href="estadisticas.html">Estadísticas</a></li>
+                <li class="admin" style="display: none"><a href="check-in.html">Check-in</a></li>
+                <li class="admin" style="display: none"><a href="check-out.html">Check-out</a></li>
+                <li class="usuario"><a href="habitaciones.html">Habitaciones</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="preguntasFrecuentes.html">Preguntas Frecuentes</a></li>
+                <li class="usuario"><a href="iniciarSesion.html">Iniciar sesión</a></li>
+                <li class="admin" style="display: none" id="cerrarSesion"><a>Cerrar sesión</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <h1>Solicitud de Reserva</h1>
+
+        <p class="descripcion-formulario">Disfrute de la tranquilidad de la costa. Complete el formulario para asegurar
+            su lugar en el paraíso. Procesaremos su solicitud en un plazo de 24 horas.</p>
+
+        <form id="formulario-reserva" class="formulario">
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="nombreCompleto">Nombre Completo</label>
+                    <input type="text" id="nombreCompleto" name="nombreCompleto" placeholder="Ej. Juan Pérez" required>
+                </div>
+            </div>
+
+            <div class="fila dos-columnas">
+                <div class="campo">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="09X XXX XXX">
+                </div>
+
+                <div class="campo">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="juan.perez@ejemplo.com" required>
+                </div>
+            </div>
+
+            <div class="fila tres-columnas">
+                <div class="campo">
+                    <label for="tipoHabitacion">Tipo de Habitación</label>
+                    <select id="tipoHabitacion" name="tipoHabitacion" required>
+                        <option value="">Seleccionar...</option>
+                        <option value="Estandar">Estándar</option>
+                        <option value="Doble">Doble</option>
+                        <option value="Suite">Suite</option>
+                        <option value="Familiar">Familiar</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="cantidadPersonas">Cantidad de personas</label>
+                    <input type="number" id="cantidadPersonas" name="cantidadPersonas"
+                        placeholder="Cantidad de personas" min="1" required>
+                </div>
+
+                <div class="campo">
+                    <fieldset>
+
+                        <legend>Servicios especiales</legend>
+
+                        <div class="contenedor-servicios-especiales">
+                            <div class="opcion-servicio">
+                                <input type="checkbox" id="desayuno" name="desayuno">
+                                <label for="desayuno">Desayuno</label>
+                            </div>
+
+                            <div class="opcion-servicio">
+                                <input type="checkbox" id="camaExtra" name="spa">
+                                <label for="camaExtra">Cama extra</label>
+                            </div>
+
+                            <div class="opcion-servicio">
+                                <input type="checkbox" id="traslado" name="traslado">
+                                <label for="traslado">Traslado</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="fila dos-columnas">
+                <div class="campo">
+                    <label for="fechaIngreso">Fecha de Ingreso</label>
+                    <input type="date" id="fechaIngreso" name="fechaIngreso" required>
+                </div>
+
+                <div class="campo">
+                    <label for="fechaSalida">Fecha de Salida</label>
+                    <input type="date" id="fechaSalida" name="fechaSalida" required>
+                </div>
+            </div>
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="solicitudEspecial">Solicitud Especial</label>
+                    <textarea id="solicitudEspecial" name="solicitudEspecial"
+                        placeholder="Alguna preferencia dietética, accesibilidad o requerimiento especial..."></textarea>
+                </div>
+            </div>
+
+            <div class="fila">
+                <button type="submit" id="enviarReserva">Enviar Solicitud</button>
+            </div>
+
+            <div class="mensaje-final">
+                <p>Al enviar esta solicitud, la misma queda en espera de confirmación.</p>
+            </div>
+        </form>
+
+    </main>
+
+    <footer>
+        <div class="divRedesSociales">
+
+            <a href="https://x.com/?lang=es" target="_blank">
+                <img src="images/LogoX.svg" alt="Logo de la red social X" class="logoX">
+            </a>
+
+            <a href="https://www.facebook.com/" target="_blank">
+                <img src="images/LogoFacebook.svg" alt="Logo de Facebook" class="logoFacebook">
+            </a>
+
+            <a href="https://www.instagram.com/" target="_blank">
+                <img src="images/LogoInstagram.svg" alt="Logo de Instagram" class="logoInstagram">
+            </a>
+
+            <a href="https://www.whatsapp.com/?lang=es" target="_blank">
+                <img src="images/LogoWhatsapp.svg" alt="Logo de Whatsapp" class="logoWhatsapp">
+            </a>
+
+        </div>
+
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=HotelLasGaviotas@gmail.com" target="_blank"
+            class="contacto-email">
+            <img src="images/IconoEmail.svg" alt="Icono de correo"> HotelLasGaviotas@gmail.com
+        </a>
+
+    </footer>
+
+</body>
+
+<script src="script/app.js"></script>
+<script src="script/core/reserva.js"></script>
+<script src="script/core/logout.js"></script>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión | Hotel Las Gaviotas</title>
+
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body class="pagina-formulario">
+
+    <header>
+
+        <a href="index.html" class="logo">
+            <img src="images/LogoHotelLasGaviotas.png" alt="Logo Hotel Las Gaviotas">
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li class="usuario"><a href="reservas.html">Reservar</a></li>
+                <li class="admin" style="display: none"><a href="gestionReservas.html">Gestión de Reservas</a></li>
+                <li class="admin" style="display: none"><a href="editarHabitaciones.html">Editar Habitaciones</a></li>
+                <li class="admin" style="display: none"><a href="consultarDisponibilidad.html">Consultar disponibilidad</a></li>
+                <li class="admin" style="display: none"><a href="estadisticas.html">Estadísticas</a></li>
+                <li class="admin" style="display: none"><a href="check-in.html">Check-in</a></li>
+                <li class="admin" style="display: none"><a href="check-out.html">Check-out</a></li>
+                <li class="usuario"><a href="habitaciones.html">Habitaciones</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="preguntasFrecuentes.html">Preguntas Frecuentes</a></li>
+                <li class="usuario"><a href="iniciarSesion.html">Iniciar sesión</a></li>
+                <li class="admin" style="display: none" id="cerrarSesion"><a>Cerrar sesión</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <h1>Iniciar sesión</h1>
+
+        <p class="descripcion-formulario">Ingrese sus credenciales para acceder a su cuenta y gestionar las reservas.
+        </p>
+
+        <form id="formulario-iniciar-sesion" class="formulario">
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="juan.perez@ejemplo.com" required>
+                </div>
+            </div>
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
+                </div>
+            </div>
+
+            <button type="submit">Ingresar</button>
+
+            <p id="loginError" class="error"></p>
+
+        </form>
+
+    </main>
+
+    <footer>
+        <div class=" divRedesSociales">
+
+            <a href="https://x.com/?lang=es" target="_blank">
+                <img src="images/LogoX.svg" alt="Logo de la red social X" class="logoX">
+            </a>
+
+            <a href="https://www.facebook.com/" target="_blank">
+                <img src="images/LogoFacebook.svg" alt="Logo de Facebook" class="logoFacebook">
+            </a>
+
+            <a href="https://www.instagram.com/" target="_blank">
+                <img src="images/LogoInstagram.svg" alt="Logo de Instagram" class="logoInstagram">
+            </a>
+
+            <a href="https://www.whatsapp.com/?lang=es" target="_blank">
+                <img src="images/LogoWhatsapp.svg" alt="Logo de Whatsapp" class="logoWhatsapp">
+            </a>
+
+        </div>
+
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=HotelLasGaviotas@gmail.com" target="_blank"
+            class="contacto-email">
+            <img src="images/IconoEmail.svg" alt="Icono de correo"> HotelLasGaviotas@gmail.com
+        </a>
+        
+    </footer>
+
+</body>
+
+<script src="/script/core/login.js"></script>
+<script src="/script/app.js"></script>
+<script src="/script/core/logout.js"></script>
+</html>
