@@ -51,9 +51,43 @@ function CrearReserva() {
     alert('Solicitud correctamente enviada. Queda a espera de confirmación.');
 }
 
+function CalcularPrecios() {
+    let precios = JSON.parse(localStorage.getItem("precios")) || [];
+    let tipoHabitacion = document.getElementById("tipoHabitacion").value;
+    let desayuno = document.getElementById("desayuno").checked;
+    let camaExtra = document.getElementById("camaExtra").checked;
+    let traslado = document.getElementById("traslado").checked;
+    let precioInicial = 0;
+
+    let fechaIngreso = new Date(document.getElementById("fechaIngreso").value);
+    let fechaSalida = new Date(document.getElementById("fechaSalida").value);
+
+    let cantidadNoches = (fechaSalida - fechaIngreso) / (1000 * 60 * 60 * 24);
+
+    if (desayuno) {
+        precioInicial += precios.find(p => p.nombre === "Desayuno").precio * cantidadNoches;
+    }
+
+    if (camaExtra) {
+        precioInicial += precios.find(p => p.nombre === "CamaExtra").precio;
+    }
+
+    if (traslado) {
+        precioInicial += precios.find(p => p.nombre === "Traslado").precio;
+    }
+
+    for (let i = 0; i < precios.length; i++) {
+        if (precios[i].nombre === tipoHabitacion) {
+            document.getElementById("precioHabitacion").value = (precios[i].precio * cantidadNoches) + precioInicial;
+            break;
+        }
+    }
+}
+
 if (typeof module !== "undefined") {
     module.exports = {
-        CrearReserva
+        CrearReserva,
+        CalcularPrecios
     };
 }
 

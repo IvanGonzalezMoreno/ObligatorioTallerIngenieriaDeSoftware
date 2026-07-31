@@ -149,7 +149,7 @@ footer {
     margin-bottom: 18px;
 }
 
-.contenido-principal > p {
+.contenido-principal>p {
     font-family: "Playfair Display", Georgia, serif;
     font-style: italic;
     font-size: 1.25rem;
@@ -397,6 +397,7 @@ footer {
 }
 
 @media (max-width: 640px) {
+
     #inicio,
     #servicios,
     #reseñas {
@@ -574,6 +575,17 @@ legend {
     height: 15px;
 }
 
+.campo-solo-lectura {
+    background-color: var(--fondo);
+    cursor: default;
+}
+
+.campo-solo-lectura:focus {
+    outline: none;
+    border-color: var(--borde);
+    box-shadow: none;
+}
+
 /* Botón */
 
 button[type="submit"] {
@@ -603,6 +615,7 @@ button:active {
     color: var(--texto-gris);
     margin: 16px 0 0;
 }
+
 /* ============================================
    Página Habitaciones — body.pagina-habitaciones
    ============================================ */
@@ -613,7 +626,7 @@ button:active {
     padding: 70px 20px 90px;
 }
 
-#habitaciones > h1 {
+#habitacionesSection>h1 {
     text-align: center;
     font-size: 2.2rem;
     font-weight: 600;
@@ -623,7 +636,7 @@ button:active {
     grid-column: 1 / -1;
 }
 
-#habitaciones > h1::after {
+#habitacionesSection>h1::after {
     content: "";
     display: block;
     width: 60px;
@@ -632,7 +645,7 @@ button:active {
     margin: 16px auto 0;
 }
 
-#habitaciones {
+#habitacionesSection {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     align-items: start;
@@ -716,7 +729,7 @@ button:active {
     margin: 0 0 4px;
 }
 
-.tarjeta-habitacion > button {
+.tarjeta-habitacion>button {
     margin: 0 20px;
     padding: 10px;
     border-radius: 6px;
@@ -726,18 +739,18 @@ button:active {
     transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.tarjeta-habitacion > button:first-of-type {
+.tarjeta-habitacion>button:first-of-type {
     margin-top: auto;
     background-color: var(--blanco);
     border: 1px solid var(--azul-oscuro);
     color: var(--azul-oscuro);
 }
 
-.tarjeta-habitacion > button:first-of-type:hover {
+.tarjeta-habitacion>button:first-of-type:hover {
     background-color: var(--arena);
 }
 
-.tarjeta-habitacion > button:last-of-type {
+.tarjeta-habitacion>button:last-of-type {
     margin-top: 10px;
     margin-bottom: 20px;
     background-color: var(--azul-oscuro);
@@ -745,7 +758,7 @@ button:active {
     color: var(--blanco);
 }
 
-.tarjeta-habitacion > button:last-of-type:hover {
+.tarjeta-habitacion>button:last-of-type:hover {
     background-color: var(--azul-hover);
 }
 
@@ -862,7 +875,7 @@ button:active {
     padding: 70px 20px 90px;
 }
 
-#galeria > h1 {
+#galeria>h1 {
     text-align: center;
     font-size: 2.2rem;
     font-weight: 600;
@@ -871,7 +884,7 @@ button:active {
     position: relative;
 }
 
-#galeria > h1::after {
+#galeria>h1::after {
     content: "";
     display: block;
     width: 60px;
@@ -1066,14 +1079,14 @@ h2 {
     gap: 18px;
 }
 
-#reservas-pendientes > div {
+#reservas-pendientes>div {
     background-color: var(--blanco);
     border: 1px solid var(--borde);
     border-radius: 14px;
     padding: 22px 26px;
 }
 
-#reservas-pendientes > div p {
+#reservas-pendientes>div p {
     font-size: 0.9rem;
     color: var(--texto-gris);
     margin-bottom: 4px;
@@ -1145,7 +1158,7 @@ h2 {
     gap: 28px;
 }
 
-#lista-disponibilidad > div {
+#lista-disponibilidad>div {
     background-color: var(--blanco);
     border: 1px solid var(--borde);
     border-radius: 14px;

@@ -1,16 +1,3 @@
-let habitaciones = JSON.parse(localStorage.getItem("habitaciones"));
-
-if (!habitaciones) {
-    habitaciones = [
-        { nombre: "Estandar", cantidad: 8 },
-        { nombre: "Doble", cantidad: 6 },
-        { nombre: "Suite", cantidad: 3 },
-        { nombre: "Familiar", cantidad: 3 }
-    ];
-
-    localStorage.setItem("habitaciones", JSON.stringify(habitaciones));
-}
-
 function TraerReservas() {
     let reservas = JSON.parse(localStorage.getItem("reservaCompleta")) || []
     console.log(reservas)
@@ -57,7 +44,7 @@ function eliminarReserva(i) {
 function aceptarReserva(i) {
     let reservas = JSON.parse(localStorage.getItem("reservaCompleta")) || []
 
-    let habitaciones = JSON.parse(localStorage.getItem("habitaciones"));
+    let habitaciones = JSON.parse(localStorage.getItem("habitaciones")) || []
     let reservasAceptadas = JSON.parse(localStorage.getItem("reservaAceptada")) || []
 
     for (let j = 0; j < reservas.length; j++) {

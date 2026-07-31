@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { CrearReserva } = require("../script/core/reserva");
+const { CrearReserva, CalcularPrecios } = require("../script/core/reserva");
 
 
 beforeEach(() => {
@@ -22,6 +22,8 @@ beforeEach(() => {
         <input id="fechaSalida">
 
         <textarea id="solicitudEspecial"></textarea>
+
+        <input id="precioHabitacion">
     `;
 
     localStorage.clear();
@@ -139,4 +141,52 @@ test("No crea reserva si la fecha de salida es anterior al ingreso", () => {
         .toHaveBeenCalledWith(
             "La fecha de salida debe ser mayor o igual a la fecha de ingreso"
         );
+});
+
+test("Calcula correctamente el precio de la reserva", () => {
+
+    localStorage.setItem("precios", JSON.stringify([
+        { nombre: "Suite", precio: 100 },
+        { nombre: "Desayuno", precio: 20 },
+        { nombre: "CamaExtra", precio: 50 },
+        { nombre: "Traslado", precio: 30 }
+    ]));
+
+    document.getElementById("tipoHabitacion").value = "Suite";
+
+    document.getElementById("desayuno").checked = true;
+    document.getElementById("camaExtra").checked = true;
+    document.getElementById("traslado").checked = true;
+
+    document.getElementById("fechaIngreso").value = "2030-10-10";
+    document.getElementById("fechaSalida").value = "2030-10-12";
+
+    CalcularPrecios();
+
+    expect(document.getElementById("precioHabitacion").value)
+        .toBe("320");
+});
+
+test("Calcula el precio solo de la habitación", () => {
+
+    localStorage.setItem("precios", JSON.stringify([
+        { nombre: "Suite", precio: 100 },
+        { nombre: "Desayuno", precio: 20 },
+        { nombre: "CamaExtra", precio: 50 },
+        { nombre: "Traslado", precio: 30 }
+    ]));
+
+    document.getElementById("tipoHabitacion").value = "Suite";
+
+    document.getElementById("desayuno").checked = false;
+    document.getElementById("camaExtra").checked = false;
+    document.getElementById("traslado").checked = false;
+
+    document.getElementById("fechaIngreso").value = "2030-10-10";
+    document.getElementById("fechaSalida").value = "2030-10-12";
+
+    CalcularPrecios();
+
+    expect(document.getElementById("precioHabitacion").value)
+        .toBe("200");
 });
