@@ -1261,3 +1261,93 @@ main:has(input[id$="CheckIn"], input[id$="CheckOut"]) div[id^="resultado"]:not(:
 main:has(input[id$="CheckIn"], input[id$="CheckOut"]) div[id^="resultado"] button {
     margin-top: 12px;
 }
+
+/* Editar Habitaciones */
+
+main:has(#habitacionesContainer) {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 70px 20px 90px;
+}
+
+main:has(#habitacionesContainer) > section > h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    margin-bottom: 8px;
+    position: relative;
+}
+
+main:has(#habitacionesContainer) > section > h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--dorado);
+    margin: 16px auto 40px;
+}
+
+#habitacionesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.habitacion {
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.habitacion h3 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.15rem;
+    color: var(--azul-profundo);
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.habitacion label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--azul-oscuro);
+    margin-bottom: 6px;
+}
+
+.habitacion input {
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: var(--azul-oscuro);
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.habitacion input:focus {
+    outline: none;
+    border-color: var(--verde-agua);
+    box-shadow: 0 0 0 3px rgba(47, 143, 128, 0.15);
+}
+
+.habitacion button {
+    margin-top: auto;
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.habitacion button:hover {
+    background-color: var(--azul-hover);
+}

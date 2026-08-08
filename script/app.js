@@ -10,12 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
     { nombre: "Doble", precio: 140, descripcion: "Está equipada con una cama matrimonial y 2 individuales." },
     { nombre: "Suite", precio: 190, descripcion: "Está equipada con una cama matrimonial, jacuzzi y balcón con vista al mar." },
     { nombre: "Familiar", precio: 240, descripcion: "Posee con 2 ambientes. Está equipada con una cama matrimonial y 4 camas individuales." },
-    { nombre: "Desayuno", precio: 10 },
-    { nombre: "CamaExtra", precio: 20 },
-    { nombre: "Traslado", precio: 15 }
+    { nombre: "Desayuno", precio: 10, descripcion: "Desayuno completo." },
+    { nombre: "CamaExtra", precio: 20, descripcion: "Cama adicional." },
+    { nombre: "Traslado", precio: 15, descripcion: "Servicio de traslado al aeropuerto." }
     ]
 
-    localStorage.setItem('precios', JSON.stringify(precios));
+    if (!localStorage.getItem("precios")) {
+    localStorage.setItem("precios", JSON.stringify(precios));
+}
 
     let datosHabitaciones = JSON.parse(localStorage.getItem("habitaciones"));
 
@@ -27,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
             { nombre: "Familiar", cantidad: 3, capacidad: 6 }
         ];
 
-        localStorage.setItem("habitaciones", JSON.stringify(habitaciones));
+        localStorage.setItem("habitaciones", JSON.stringify(datosHabitaciones));
     }
 
     if (adminLogueado === "true") {
@@ -109,6 +111,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (habitaciones) {
         CargarInformacionHabitaciones();
+    }
+
+    const editarHabitaciones = document.getElementById('habitacionesContainer');
+
+    if (editarHabitaciones) {
+        recibirHabitaciones();
     }
 
 
