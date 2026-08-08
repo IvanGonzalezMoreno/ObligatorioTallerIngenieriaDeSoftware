@@ -124,56 +124,42 @@
 
             <h2>Reseñas</h2>
 
-            <div class="contenedor-reseñas">
+            <div id="contenedor-reseñas">
 
-                <article class="articulo-reseña">
 
-                    <div class="encabezado-reseña">
-                        <img src="images/usuario.svg" alt="Foto de perfil" class="imgPerfil">
-
-                        <div class="informacion-huesped">
-                            <h3 class="nombre-huesped">Juan Pérez</h3>
-
-                            <img src="images/estrellas.svg" alt="5 estrellas" class="imgEstrellas">
-                        </div>
-                    </div>
-                    <p class="texto-reseña">Muy recomendable!</p>
-
-                </article>
-
-                <article class="articulo-reseña">
-
-                    <div class="encabezado-reseña">
-                        <img src="images/usuario.svg" alt="Foto de perfil" class="imgPerfil">
-
-                        <div class="informacion-huesped">
-                            <h3 class="nombre-huesped">Diego Rodríguez</h3>
-
-                            <img src="images/estrellas.svg" alt="5 estrellas" class="imgEstrellas">
-                        </div>
-                    </div>
-
-                    <p class="texto-reseña">Espectacular!</p>
-
-                </article>
-
-                <article class="articulo-reseña">
-
-                    <div class="encabezado-reseña">
-                        <img src="images/usuario.svg" alt="Foto de perfil" class="imgPerfil">
-
-                        <div class="informacion-huesped">
-                            <h3 class="nombre-huesped">Pedro González</h3>
-
-                            <img src="images/estrellas.svg" alt="5 estrellas" class="imgEstrellas">
-                        </div>
-                    </div>
-
-                    <p class="texto-reseña">Increíble!</p>
-
-                </article>
 
             </div>
+
+            <button id="btnReview">Dejar una reseña</button>
+
+            <div id="modalReview" class="modal">
+                <div class="modal-contenido">
+                    <span id="cerrarModal">&times;</span>
+
+                    <h2>Dejar una reseña</h2>
+
+                    <form id="formReview">
+                        <label for="nombreReview">Nombre:</label>
+                        <input type="text" id="nombreReview" required>
+
+                        <label for="comentarioReview">Comentario:</label>
+                        <textarea id="comentarioReview"></textarea>
+
+                        <label for="calificacionReview">Calificación:</label>
+                        <select id="calificacionReview" required>
+                            <option value="">Seleccione...</option>
+                            <option value="1">⭐</option>
+                            <option value="2">⭐⭐</option>
+                            <option value="3">⭐⭐⭐</option>
+                            <option value="4">⭐⭐⭐⭐</option>
+                            <option value="5">⭐⭐⭐⭐⭐</option>
+                        </select>
+
+                        <button id="enviarReview" type="submit">Enviar reseña</button>
+                    </form>
+                </div>
+            </div>
+
         </section>
 
         <section id="ubicacion">
@@ -221,5 +207,7 @@
 <script src="/script/app.js"></script>
 <script src="/script/core/reserva.js"></script>
 <script src="/script/core/logout.js"></script>
-
+<script src="/script/core/crearReview.js"></script>
+<script src="/script/core/mostrarReview.js"></script>
+<script src="/script/core/mostrarEstrellas.js"></script>
 </html>

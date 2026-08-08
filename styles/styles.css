@@ -1351,3 +1351,238 @@ main:has(#habitacionesContainer) > section > h1::after {
 .habitacion button:hover {
     background-color: var(--azul-hover);
 }
+
+/* ============================================
+   Reseñas
+   ============================================ */
+
+#reseñas {
+    background-color: var(--arena);
+    padding: 80px 20px 90px;
+    text-align: center;
+}
+
+#reseñas h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    margin-bottom: 48px;
+    position: relative;
+}
+
+#reseñas h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--dorado);
+    margin: 16px auto 0;
+}
+
+#contenedor-reseñas {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.articulo-reseña {
+    background-color: var(--blanco);
+    border-radius: 14px;
+    padding: 32px 28px;
+    text-align: left;
+    box-shadow: 0 10px 26px rgba(18, 49, 71, 0.08);
+    position: relative;
+}
+
+.articulo-reseña::before {
+    content: "\201C";
+    position: absolute;
+    top: 10px;
+    right: 24px;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 3.5rem;
+    color: var(--arena-oscura);
+    line-height: 1;
+}
+
+.encabezado-reseña {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.imgPerfil {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--arena);
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+.informacion-huesped {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.nombre-huesped {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    margin: 0;
+}
+
+.estrellas {
+    color: var(--dorado);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.texto-reseña {
+    font-family: "Playfair Display", Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--texto-gris);
+    margin: 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 860px) {
+    #contenedor-reseñas {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Botón "Dejar una reseña" */
+
+#btnReview {
+    display: block;
+    margin: 40px auto 0;
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    border: none;
+    border-radius: 6px;
+    padding: 12px 28px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+#btnReview:hover {
+    background-color: var(--azul-hover);
+}
+
+/* Modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(18, 49, 71, 0.55);
+    z-index: 100;
+    text-align: center;
+}
+
+.modal::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.modal-contenido {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    background-color: var(--blanco);
+    border-radius: 14px;
+    padding: 36px;
+    width: 90%;
+    max-width: 420px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 50px rgba(18, 49, 71, 0.25);
+}
+
+.modal-contenido h2 {
+    font-size: 1.4rem;
+    color: var(--azul-profundo);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#cerrarModal {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--texto-gris);
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+#cerrarModal:hover {
+    color: var(--azul-oscuro);
+}
+
+#formReview {
+    display: flex;
+    flex-direction: column;
+}
+
+#formReview label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--azul-oscuro);
+    margin-bottom: 6px;
+}
+
+#formReview input,
+#formReview textarea,
+#formReview select {
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: var(--azul-oscuro);
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+#formReview textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+#formReview input:focus,
+#formReview textarea:focus,
+#formReview select:focus {
+    outline: none;
+    border-color: var(--verde-agua);
+    box-shadow: 0 0 0 3px rgba(47, 143, 128, 0.15);
+}
+
+#formReview button[type="submit"] {
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+#formReview button[type="submit"]:hover {
+    background-color: var(--azul-hover);
+}

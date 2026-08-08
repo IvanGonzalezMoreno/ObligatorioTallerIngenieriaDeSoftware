@@ -16,8 +16,53 @@ document.addEventListener("DOMContentLoaded", () => {
     ]
 
     if (!localStorage.getItem("precios")) {
-    localStorage.setItem("precios", JSON.stringify(precios));
-}
+        localStorage.setItem("precios", JSON.stringify(precios));
+    }
+
+    let review = JSON.parse(localStorage.getItem("reviews"));
+    if (!review) {
+        review = [
+            { nombre: "Juan Pérez", comentario: "Excelente servicio y atención. La habitación estaba impecable.", calificacion: 5 },
+            { nombre: "Pedro González López", comentario: "Disfruté mucho mi estadía. El desayuno fue delicioso.", calificacion: 4 },
+            { nombre: "Carla García", comentario: "El personal fue muy amable y servicial. Volveré pronto.", calificacion: 5 }
+        ];
+
+        localStorage.setItem("reviews", JSON.stringify(review));
+    }
+
+    const btnReview = document.getElementById("btnReview");
+    const modalReview = document.getElementById("modalReview");
+    const cerrarModal = document.getElementById("cerrarModal");
+
+    btnReview.addEventListener("click", function () {
+        modalReview.style.display = "block";
+    });
+
+    cerrarModal.addEventListener("click", function () {
+        modalReview.style.display = "none";
+    });
+
+    const mostrarReviews = document.getElementById("contenedor-reseñas");
+
+    if (mostrarReviews) {
+        MostrarReview();
+
+        window.addEventListener("click", function (e) {
+            if (e.target === modalReview) {
+                modalReview.style.display = "none";
+            }
+        });
+    }
+
+    const formReview = document.getElementById("formReview");
+
+    if (formReview) {
+        formReview.addEventListener("submit", function (e) {
+            // e.preventDefault();
+            CrearReview();
+            MostrarReview();
+        });
+    }
 
     let datosHabitaciones = JSON.parse(localStorage.getItem("habitaciones"));
 
