@@ -90,5 +90,3 @@ if (typeof module !== "undefined") {
         CalcularPrecios
     };
 }
-
-//JSON.parse(localStorage.reservaCompleta)

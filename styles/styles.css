@@ -39,6 +39,7 @@ main h3 {
    ============================================ */
 
 header {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -60,6 +61,7 @@ header .logo img {
 
 header nav ul {
     display: flex;
+    align-items: center;
     gap: 32px;
     list-style: none;
     margin: 0;
@@ -77,6 +79,116 @@ header nav ul li a {
 header nav ul li a:hover,
 header nav ul li a.active {
     color: var(--verde-agua);
+}
+
+/* Menú hamburguesa */
+
+.menu-hamburguesa button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.menu-hamburguesa button span {
+    width: 22px;
+    height: 2px;
+    background-color: var(--azul-oscuro);
+    display: block;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.menu-hamburguesa button:hover span {
+    background-color: var(--verde-agua);
+}
+
+.menu-hamburguesa button.abierto span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-hamburguesa button.abierto span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-hamburguesa button.abierto span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.menu-desplegable {
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 40px;
+    width: 220px;
+    background-color: var(--azul-oscuro);
+    border-radius: 14px;
+    padding: 20px;
+    clip-path: circle(0% at 100% 0%);
+    transition: clip-path 0.4s ease;
+    pointer-events: none;
+    z-index: 50;
+}
+
+.menu-desplegable.mostrar {
+    clip-path: circle(150% at 100% 0%);
+    pointer-events: auto;
+}
+
+.menu-desplegable ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.menu-desplegable li a {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 6px;
+    color: var(--blanco);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+}
+
+.menu-desplegable li a:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: var(--dorado);
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-wrap: wrap;
+        padding: 12px 16px;
+        row-gap: 10px;
+    }
+
+    header .logo img {
+        height: 60px;
+    }
+
+    header nav ul {
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    header nav ul li a {
+        font-size: 0.85rem;
+    }
+
+    .menu-desplegable {
+        right: 16px;
+    }
 }
 
 /* ============================================
@@ -110,6 +222,29 @@ footer {
 .divRedesSociales img {
     width: 22px;
     height: 22px;
+}
+
+.contacto-email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--borde);
+    color: var(--texto-gris);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.contacto-email:hover {
+    color: var(--verde-agua);
+}
+
+.contacto-email img {
+    width: 18px;
+    height: 18px;
 }
 
 /* ============================================
@@ -149,7 +284,7 @@ footer {
     margin-bottom: 18px;
 }
 
-.contenido-principal>p {
+.contenido-principal > p {
     font-family: "Playfair Display", Georgia, serif;
     font-style: italic;
     font-size: 1.25rem;
@@ -295,6 +430,7 @@ footer {
     background-color: var(--arena);
     padding: 80px 20px 90px;
     text-align: center;
+    overflow: hidden;
 }
 
 #reseñas h2 {
@@ -314,12 +450,32 @@ footer {
     margin: 16px auto 0;
 }
 
-.contenedor-reseñas {
+.carrusel-reseñas {
     max-width: 1080px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    overflow: hidden;
+}
+
+#contenedor-reseñas {
+    display: flex;
+    width: max-content;
+    animation: recorrerReseñas 30s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+#contenedor-reseñas:hover {
+    animation-play-state: paused;
+}
+
+@keyframes recorrerReseñas {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-50%, 0, 0);
+    }
 }
 
 .articulo-reseña {
@@ -329,6 +485,8 @@ footer {
     text-align: left;
     box-shadow: 0 10px 26px rgba(18, 49, 71, 0.08);
     position: relative;
+    flex: 0 0 320px;
+    margin-right: 28px;
 }
 
 .articulo-reseña::before {
@@ -372,9 +530,10 @@ footer {
     margin: 0;
 }
 
-.imgEstrellas {
-    height: 14px;
-    width: auto;
+.estrellas {
+    color: var(--dorado);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
 }
 
 .texto-reseña {
@@ -386,11 +545,136 @@ footer {
     line-height: 1.5;
 }
 
-@media (max-width: 860px) {
-    .contenedor-reseñas {
-        grid-template-columns: 1fr;
-    }
+/* Botón "Dejar una reseña" */
 
+#btnReview {
+    display: block;
+    margin: 40px auto 0;
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    border: none;
+    border-radius: 6px;
+    padding: 12px 28px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+#btnReview:hover {
+    background-color: var(--azul-hover);
+}
+
+/* Modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(18, 49, 71, 0.55);
+    z-index: 100;
+    text-align: center;
+}
+
+.modal::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.modal-contenido {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    background-color: var(--blanco);
+    border-radius: 14px;
+    padding: 36px;
+    width: 90%;
+    max-width: 420px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 50px rgba(18, 49, 71, 0.25);
+}
+
+.modal-contenido h2 {
+    font-size: 1.4rem;
+    color: var(--azul-profundo);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#cerrarModal {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--texto-gris);
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+#cerrarModal:hover {
+    color: var(--azul-oscuro);
+}
+
+#formReview {
+    display: flex;
+    flex-direction: column;
+}
+
+#formReview label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--azul-oscuro);
+    margin-bottom: 6px;
+}
+
+#formReview input,
+#formReview textarea,
+#formReview select {
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: var(--azul-oscuro);
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+#formReview textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+#formReview input:focus,
+#formReview textarea:focus,
+#formReview select:focus {
+    outline: none;
+    border-color: var(--verde-agua);
+    box-shadow: 0 0 0 3px rgba(47, 143, 128, 0.15);
+}
+
+#formReview button[type="submit"] {
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+#formReview button[type="submit"]:hover {
+    background-color: var(--azul-hover);
+}
+
+@media (max-width: 860px) {
     .contenido-principal h1 {
         font-size: 2.4rem;
     }
@@ -419,6 +703,10 @@ footer {
 
     .servicio {
         scroll-snap-align: start;
+    }
+
+    .articulo-reseña {
+        flex-basis: 260px;
     }
 }
 
@@ -616,6 +904,14 @@ button:active {
     margin: 16px 0 0;
 }
 
+@media (max-width: 640px) {
+
+    .fila.dos-columnas,
+    .fila.tres-columnas {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ============================================
    Página Habitaciones — body.pagina-habitaciones
    ============================================ */
@@ -626,7 +922,7 @@ button:active {
     padding: 70px 20px 90px;
 }
 
-#habitacionesSection>h1 {
+#habitacionesSection > h1 {
     text-align: center;
     font-size: 2.2rem;
     font-weight: 600;
@@ -636,7 +932,7 @@ button:active {
     grid-column: 1 / -1;
 }
 
-#habitacionesSection>h1::after {
+#habitacionesSection > h1::after {
     content: "";
     display: block;
     width: 60px;
@@ -729,7 +1025,7 @@ button:active {
     margin: 0 0 4px;
 }
 
-.tarjeta-habitacion>button {
+.tarjeta-habitacion > button {
     margin: 0 20px;
     padding: 10px;
     border-radius: 6px;
@@ -739,18 +1035,18 @@ button:active {
     transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.tarjeta-habitacion>button:first-of-type {
+.tarjeta-habitacion > button:first-of-type {
     margin-top: auto;
     background-color: var(--blanco);
     border: 1px solid var(--azul-oscuro);
     color: var(--azul-oscuro);
 }
 
-.tarjeta-habitacion>button:first-of-type:hover {
+.tarjeta-habitacion > button:first-of-type:hover {
     background-color: var(--arena);
 }
 
-.tarjeta-habitacion>button:last-of-type {
+.tarjeta-habitacion > button:last-of-type {
     margin-top: 10px;
     margin-bottom: 20px;
     background-color: var(--azul-oscuro);
@@ -758,10 +1054,19 @@ button:active {
     color: var(--blanco);
 }
 
-.tarjeta-habitacion>button:last-of-type:hover {
+.tarjeta-habitacion > button:last-of-type:hover {
     background-color: var(--azul-hover);
 }
 
+@media (max-width: 640px) {
+    #habitacionesSection {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   Página Preguntas Frecuentes — body.pagina-faq
+   ============================================ */
 
 .pagina-faq main {
     max-width: 760px;
@@ -840,7 +1145,6 @@ button:active {
 }
 
 .pagina-faq details[open] summary::after {
-    content: "+";
     transform: rotate(45deg);
     background-color: var(--verde-agua);
     color: var(--blanco);
@@ -875,7 +1179,7 @@ button:active {
     padding: 70px 20px 90px;
 }
 
-#galeria>h1 {
+#galeria > h1 {
     text-align: center;
     font-size: 2.2rem;
     font-weight: 600;
@@ -884,7 +1188,7 @@ button:active {
     position: relative;
 }
 
-#galeria>h1::after {
+#galeria > h1::after {
     content: "";
     display: block;
     width: 60px;
@@ -900,7 +1204,7 @@ button:active {
     margin-bottom: 40px;
 }
 
-h2 {
+.tarjeta-galeria h2 {
     flex-basis: 100%;
     font-size: 1.3rem;
     font-weight: 600;
@@ -920,12 +1224,6 @@ h2 {
     object-fit: cover;
     border-radius: 14px;
     box-shadow: 0 10px 26px rgba(18, 49, 71, 0.08);
-}
-
-@media (max-width: 640px) {
-    .imagenes-galeria {
-        flex-basis: 100%;
-    }
 }
 
 /* Carrusel */
@@ -976,32 +1274,13 @@ h2 {
 }
 
 @media (max-width: 640px) {
+    .imagenes-galeria {
+        flex-basis: 100%;
+    }
+
     #imagenCarrusel {
         height: 260px;
     }
-}
-
-.contacto-email {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 18px;
-    padding-top: 18px;
-    border-top: 1px solid var(--borde);
-    color: var(--texto-gris);
-    font-size: 0.85rem;
-    text-decoration: none;
-    transition: color 0.15s ease;
-}
-
-.contacto-email:hover {
-    color: var(--verde-agua);
-}
-
-.contacto-email img {
-    width: 18px;
-    height: 18px;
 }
 
 /* Ubicación */
@@ -1044,7 +1323,6 @@ h2 {
     }
 }
 
-
 /* ============================================
    Página Gestión de Reservas
    ============================================ */
@@ -1079,14 +1357,14 @@ h2 {
     gap: 18px;
 }
 
-#reservas-pendientes>div {
+#reservas-pendientes > div {
     background-color: var(--blanco);
     border: 1px solid var(--borde);
     border-radius: 14px;
     padding: 22px 26px;
 }
 
-#reservas-pendientes>div p {
+#reservas-pendientes > div p {
     font-size: 0.9rem;
     color: var(--texto-gris);
     margin-bottom: 4px;
@@ -1158,7 +1436,7 @@ h2 {
     gap: 28px;
 }
 
-#lista-disponibilidad>div {
+#lista-disponibilidad > div {
     background-color: var(--blanco);
     border: 1px solid var(--borde);
     border-radius: 14px;
@@ -1178,6 +1456,12 @@ h2 {
     font-weight: 600;
     color: var(--azul-profundo);
     margin-bottom: 8px;
+}
+
+@media (max-width: 640px) {
+    #lista-disponibilidad {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Check-in / Check-out */
@@ -1353,346 +1637,50 @@ main:has(#habitacionesContainer) > section > h1::after {
 }
 
 /* ============================================
-   Reseñas
+   Estadísticas
    ============================================ */
 
-#reseñas {
-    background-color: var(--arena);
-    padding: 80px 20px 90px;
-    text-align: center;
-    overflow: hidden;
+main:has(#seccionEstadistica) {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 70px 20px 90px;
 }
 
-#reseñas h2 {
+#seccionEstadistica > h1 {
+    text-align: center;
     font-size: 2.2rem;
     font-weight: 600;
     color: var(--azul-profundo);
-    margin-bottom: 48px;
+    margin-bottom: 8px;
     position: relative;
 }
 
-#reseñas h2::after {
+#seccionEstadistica > h1::after {
     content: "";
     display: block;
     width: 60px;
     height: 2px;
     background-color: var(--dorado);
-    margin: 16px auto 0;
+    margin: 16px auto 48px;
 }
 
-#contenedor-reseñas {
-    display: flex;
-    width: max-content;
-    animation: recorrerReseñas 30s linear infinite;
-    will-change: transform;
-    backface-visibility: hidden;
-}
-
-#contenedor-reseñas:hover {
-    animation-play-state: paused;
-}
-
-.articulo-reseña {
-    background-color: var(--blanco);
-    border-radius: 14px;
-    padding: 32px 28px;
-    text-align: left;
-    box-shadow: 0 10px 26px rgba(18, 49, 71, 0.08);
-    position: relative;
-    flex: 0 0 320px;
-    margin-right: 28px;
-}
-
-@keyframes recorrerReseñas {
-    from {
-        transform: translate3d(0, 0, 0);
-    }
-    to {
-        transform: translate3d(-50%, 0, 0);
-    }
-}
-
-.carrusel-reseñas {
-    max-width: 1080px;
-    margin: 0 auto;
-    overflow: hidden;
-}
-
-.articulo-reseña::before {
-    content: "\201C";
-    position: absolute;
-    top: 10px;
-    right: 24px;
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: 3.5rem;
-    color: var(--arena-oscura);
-    line-height: 1;
-}
-
-.encabezado-reseña {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 16px;
-}
-
-.imgPerfil {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    object-fit: cover;
-    background-color: var(--arena);
-    padding: 6px;
-    box-sizing: border-box;
-}
-
-.informacion-huesped {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.nombre-huesped {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--azul-profundo);
-    margin: 0;
-}
-
-.estrellas {
-    color: var(--dorado);
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-}
-
-.texto-reseña {
-    font-family: "Playfair Display", Georgia, serif;
-    font-style: italic;
-    font-size: 1.05rem;
-    color: var(--texto-gris);
-    margin: 0;
-    line-height: 1.5;
-}
-
-/* Botón "Dejar una reseña" */
-
-#btnReview {
-    display: block;
-    margin: 40px auto 0;
-    background-color: var(--azul-oscuro);
-    color: var(--blanco);
-    border: none;
-    border-radius: 6px;
-    padding: 12px 28px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.15s ease;
-}
-
-#btnReview:hover {
-    background-color: var(--azul-hover);
-}
-
-/* Modal */
-
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background-color: rgba(18, 49, 71, 0.55);
-    z-index: 100;
+#seccionEstadistica h2 {
     text-align: center;
-}
-
-.modal::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-}
-
-.modal-contenido {
-    position: relative;
-    display: inline-block;
-    text-align: left;
-    vertical-align: middle;
-    background-color: var(--blanco);
-    border-radius: 14px;
-    padding: 36px;
-    width: 90%;
-    max-width: 420px;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 20px 50px rgba(18, 49, 71, 0.25);
-}
-
-.modal-contenido h2 {
-    font-size: 1.4rem;
-    color: var(--azul-profundo);
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-#cerrarModal {
-    position: absolute;
-    top: 16px;
-    right: 20px;
-    font-size: 1.4rem;
-    line-height: 1;
-    color: var(--texto-gris);
-    cursor: pointer;
-    transition: color 0.15s ease;
-}
-
-#cerrarModal:hover {
-    color: var(--azul-oscuro);
-}
-
-#formReview {
-    display: flex;
-    flex-direction: column;
-}
-
-#formReview label {
-    font-size: 0.85rem;
+    font-size: 1.8rem;
     font-weight: 600;
     color: var(--azul-oscuro);
-    margin-bottom: 6px;
+    margin-bottom: 40px;
 }
 
-#formReview input,
-#formReview textarea,
-#formReview select {
+#seccionEstadistica > div {
+    background-color: var(--blanco);
     border: 1px solid var(--borde);
-    border-radius: 6px;
-    padding: 10px 12px;
-    font-size: 0.9rem;
-    font-family: inherit;
-    color: var(--azul-oscuro);
-    margin-bottom: 16px;
-    width: 100%;
-}
-
-#formReview textarea {
-    min-height: 90px;
-    resize: vertical;
-}
-
-#formReview input:focus,
-#formReview textarea:focus,
-#formReview select:focus {
-    outline: none;
-    border-color: var(--verde-agua);
-    box-shadow: 0 0 0 3px rgba(47, 143, 128, 0.15);
-}
-
-#formReview button[type="submit"] {
-    background-color: var(--azul-oscuro);
-    color: var(--blanco);
-    border: none;
-    border-radius: 6px;
-    padding: 12px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.15s ease;
-}
-
-#formReview button[type="submit"]:hover {
-    background-color: var(--azul-hover);
-}
-
-
-/* Header con menú desplegable */
-
-header {
-    position: relative;
-}
-
-header nav ul {
-    align-items: center;
-}
-
-.menu-hamburguesa button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-}
-
-.menu-hamburguesa button span {
-    width: 22px;
-    height: 2px;
-    background-color: var(--azul-oscuro);
-    display: block;
-    transition: transform 0.25s ease, opacity 0.25s ease;
-}
-
-.menu-hamburguesa button:hover span {
-    background-color: var(--verde-agua);
-}
-
-.menu-hamburguesa button.abierto span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.menu-hamburguesa button.abierto span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-hamburguesa button.abierto span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-.menu-desplegable {
-    display: block;
-    position: absolute;
-    top: 100%;
-    right: 40px;
-    width: 220px;
-    background-color: var(--azul-oscuro);
     border-radius: 14px;
-    padding: 20px;
-    clip-path: circle(0% at 100% 0%);
-    transition: clip-path 0.4s ease;
-    pointer-events: none;
-    z-index: 50;
-}
-
-.menu-desplegable.mostrar {
-    clip-path: circle(150% at 100% 0%);
-    pointer-events: auto;
-}
-
-.menu-desplegable ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.menu-desplegable li a {
-    display: block;
-    padding: 8px 10px;
-    border-radius: 6px;
-    color: var(--blanco);
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background-color 0.15s ease;
-}
-
-.menu-desplegable li a:hover {
-    background-color: rgba(255, 255, 255, 0.12);
-    color: var(--dorado);
+    padding: 28px;
+    text-align: center;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--verde-agua);
+    margin-bottom: 40px;
 }

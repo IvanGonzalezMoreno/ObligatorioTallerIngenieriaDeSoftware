@@ -4,7 +4,7 @@ function CrearReview() {
     let reviewNueva = {
         nombre: document.getElementById("nombreReview").value,
         comentario: document.getElementById("comentarioReview").value,
-        calificacion: document.getElementById("calificacionReview").value
+        calificacion: parseInt(document.getElementById("calificacionReview").value)
     }
 
     reviews.push(reviewNueva);

@@ -178,5 +178,11 @@ document.addEventListener("DOMContentLoaded", () => {
         recibirHabitaciones();
     }
 
+    const estadistica = document.getElementById('seccionEstadistica');
+
+    if (estadistica) {
+        MostrarEstadisticas();
+    }
+
 
 });
