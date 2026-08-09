@@ -1,5 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    const btnMenu = document.getElementById("btnMenu");
+    const menuDesplegable = document.getElementById("menuDesplegable");
+
+    if (btnMenu) {
+        btnMenu.addEventListener("click", function () {
+            menuDesplegable.classList.toggle("mostrar");
+            btnMenu.classList.toggle("abierto");
+        });
+    }
+
     const adminLogueado = localStorage.getItem('adminLogueado');
 
     const opcionesAdmin = document.getElementsByClassName("admin");
@@ -34,13 +44,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalReview = document.getElementById("modalReview");
     const cerrarModal = document.getElementById("cerrarModal");
 
-    btnReview.addEventListener("click", function () {
-        modalReview.style.display = "block";
-    });
+    if (btnReview) {
+        btnReview.addEventListener("click", function () {
+            modalReview.style.display = "block";
+        });
+    }
 
-    cerrarModal.addEventListener("click", function () {
-        modalReview.style.display = "none";
-    });
+    if (cerrarModal) {
+        cerrarModal.addEventListener("click", function () {
+            modalReview.style.display = "none";
+        });
+    }
 
     const mostrarReviews = document.getElementById("contenedor-reseñas");
 

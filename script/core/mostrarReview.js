@@ -21,5 +21,5 @@ function MostrarReview() {
                 </article>
         `;
     }
-    document.getElementById("contenedor-reseñas").innerHTML = html;
+    document.getElementById("contenedor-reseñas").innerHTML = html + html;
 }
