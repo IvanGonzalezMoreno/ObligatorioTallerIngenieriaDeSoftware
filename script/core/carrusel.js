@@ -12,24 +12,54 @@ let indice = 0;
 
 const imagenCarrusel = document.getElementById("imagenCarrusel");
 
-imagenCarrusel.src = imagenes[indice];
+const carrusel = document.querySelector(".carrusel");
 
-document.getElementById("siguiente").addEventListener("click", () => {
+function mostrarImagen() {
+    imagenCarrusel.style.opacity = "0";
+
+    setTimeout(function () {
+        imagenCarrusel.src = imagenes[indice];
+        imagenCarrusel.style.opacity = "1";
+    }, 200);
+}
+
+function siguienteImagen() {
     indice++;
-
     if (indice >= imagenes.length) {
         indice = 0;
     }
+    mostrarImagen();
+}
 
-    imagenCarrusel.src = imagenes[indice];
-});
-
-document.getElementById("anterior").addEventListener("click", () => {
+function anteriorImagen() {
     indice--;
-
     if (indice < 0) {
         indice = imagenes.length - 1;
     }
+    mostrarImagen();
+}
 
-    imagenCarrusel.src = imagenes[indice];
+let intervalo = setInterval(siguienteImagen, 4000);
+
+function reiniciarIntervalo() {
+    clearInterval(intervalo);
+    intervalo = setInterval(siguienteImagen, 4000);
+}
+
+document.getElementById("siguiente").addEventListener("click", function () {
+    siguienteImagen();
+    reiniciarIntervalo();
+});
+
+document.getElementById("anterior").addEventListener("click", function () {
+    anteriorImagen();
+    reiniciarIntervalo();
+});
+
+carrusel.addEventListener("mouseenter", function () {
+    clearInterval(intervalo);
+});
+
+carrusel.addEventListener("mouseleave", function () {
+    reiniciarIntervalo();
 });

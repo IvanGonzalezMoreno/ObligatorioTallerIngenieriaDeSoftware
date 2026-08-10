@@ -18,7 +18,7 @@ function TraerReservas() {
             <p>Fecha salida: ${reservas[i].fechaSalida}</p>
             <p>Solicitud especial: ${reservas[i].solicitudEspecial}</p>
             
-            <button class="btn btn-danger" onclick="eliminarReserva(${i})">Eliminar reserva</button>
+            <button class="btn btn-danger" onclick="eliminarReserva(${i})">Rechazar reserva</button>
             <button class="btn btn-success" onclick="aceptarReserva(${i})">Aceptar reserva</button>
         </div>
         `

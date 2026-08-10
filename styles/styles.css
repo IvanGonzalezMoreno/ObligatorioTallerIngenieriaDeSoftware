@@ -716,26 +716,36 @@ footer {
    ============================================ */
 
 .pagina-formulario main {
-    max-width: 720px;
+    max-width: 820px;
     margin: 0 auto;
     padding: 50px 20px 70px;
 }
 
 .pagina-formulario h1 {
     font-size: 2.1rem;
-    margin-bottom: 8px;
+    text-align: center;
+    position: relative;
+}
+
+.pagina-formulario h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--dorado);
+    margin: 16px auto 24px;
 }
 
 .descripcion-formulario {
     color: var(--texto-gris);
     line-height: 1.5;
     margin-bottom: 32px;
-    max-width: 560px;
+    text-align: center;
 }
 
 /* Form card */
 
-.tarjeta-formulario {
+.formulario {
     background-color: var(--blanco);
     border: 1px solid var(--borde);
     border-radius: 12px;
@@ -757,7 +767,7 @@ footer {
 
 .fila.tres-columnas {
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-columns: 1fr 1.05fr 1.95fr;
     gap: 24px;
 }
 
@@ -838,7 +848,7 @@ legend {
 .contenedor-servicios-especiales {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 8px;
     align-items: center;
     padding-top: 2px;
 }
@@ -846,11 +856,11 @@ legend {
 .opcion-servicio {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
 }
 
 .opcion-servicio label {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 400;
     color: var(--azul-oscuro);
     margin-bottom: 0;
@@ -1250,6 +1260,7 @@ button:active {
     height: 400px;
     object-fit: contain;
     background-color: var(--arena);
+    transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .carrusel button {
@@ -1482,10 +1493,20 @@ main:has(input[id$="CheckIn"], input[id$="CheckOut"]) section {
 }
 
 main:has(input[id$="CheckIn"], input[id$="CheckOut"]) h1 {
-    font-size: 1.4rem;
+    font-size: 2.2rem;
     font-weight: 600;
     color: var(--azul-profundo);
-    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+}
+
+main:has(input[id$="CheckIn"], input[id$="CheckOut"]) h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--dorado);
+    margin: 16px auto 32px;
 }
 
 main:has(input[id$="CheckIn"], input[id$="CheckOut"]) label {
