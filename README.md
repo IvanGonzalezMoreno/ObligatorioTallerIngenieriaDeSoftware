@@ -1,5 +1,3 @@
-🌐 Ver Demo https://ivangonzalezmoreno.github.io/ObligatorioTallerIngenieriaDeSoftware/index.htmlhttps://ivangonzalezmoreno.github.io/ObligatorioTallerIngenieriaDeSoftware/index.html
-
 🏨 Hotel Las Gaviotas
 https://ivangonzalezmoreno.github.io/ObligatorioTallerIngenieriaDeSoftware/index.html
 Aplicación web para la gestión integral de reservas y operaciones de un hotel.
