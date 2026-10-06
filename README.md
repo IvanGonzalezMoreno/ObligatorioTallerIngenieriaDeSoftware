@@ -1,5 +1,7 @@
-🏨 Hotel Las Gaviotas
+🌐 Ver Demo https://ivangonzalezmoreno.github.io/ObligatorioTallerIngenieriaDeSoftware/index.htmlhttps://ivangonzalezmoreno.github.io/ObligatorioTallerIngenieriaDeSoftware/index.html
 
+🏨 Hotel Las Gaviotas
+https://ivangonzalezmoreno.github.io/ObligatorioTallerIngenieriaDeSoftware/index.html
 Aplicación web para la gestión integral de reservas y operaciones de un hotel.
 
 Hotel Las Gaviotas es una aplicación web desarrollada con HTML, CSS y JavaScript que simula el funcionamiento de un sistema de reservas hoteleras, incluyendo el flujo completo desde la creación de una reserva hasta el check-out.
