@@ -6,7 +6,7 @@ function MostrarReview() {
         html += `
         <article class="articulo-reseña">
                     <div class="encabezado-reseña">
-                        <img src="/images/usuario.svg" alt="Foto de perfil" class="imgPerfil">
+                        <img src="images/usuario.svg" alt="Foto de perfil" class="imgPerfil">
 
                         <div class="informacion-huesped">
                             <h3 class="nombre-huesped">${review[i].nombre}</h3>
