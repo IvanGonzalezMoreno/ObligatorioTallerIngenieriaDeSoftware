@@ -275,5 +275,3 @@ Proyecto desarrollado como parte de la formación en desarrollo de software.
 Iván González
 
 Estudiante de Analista en Tecnologías de la Información — ORT Uruguay.
-
-⭐ Si te resulta interesante el proyecto, podés darle una estrella al repositorio.
